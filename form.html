@@ -1,0 +1,49 @@
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-label stacked>Nome:</ion-label>
+        <ion-input formControlName="name" type="text" placeholder="Nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-label stacked>Apelido:</ion-label>
+        <ion-input formControlName="lastName" type="text" placeholder="Apelido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail" item-left></ion-icon>
+        <ion-label stacked>Email:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label stacked>Data de Nascimento:</ion-label>
+        <ion-datetime formControlName="dateBirth" displayFormat="MM-DD-YYYY" placeholder="MM-DD-YYY"></ion-datetime>
+      </ion-item>
+      <div formGroupName="Senha">
+        <ion-item>
+          <ion-icon name="eye" item-left></ion-icon>
+          <ion-label stacked>Contraseña:</ion-label>
+          <ion-input formControlName="password" type="password" placeholder="Senha"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="eye" item-left></ion-icon>
+          <ion-label stacked>Confirmar Senha:</ion-label>
+          <ion-input formControlName="passwordConfirmation" type="password" placeholder="Confirmar senha"></ion-input>
+        </ion-item>
+      </div>
+      <ion-row radio-group formControlName="Sexo">
+        <ion-item>
+          <ion-icon name="woman" item-left></ion-icon>
+          <ion-label>Feminino</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label>Masculino</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-row>
+    </ion-list>
+    <div padding> <button ion-button block type="submit" [disabled]="!myForm.valid">Salvar</button></div>
+  </form>
